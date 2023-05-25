@@ -11,7 +11,7 @@ import Unauthenticated from "./unauthenticated";
 
 const Dashboard = () => {
   const { data: session, status } = useSession();
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [editValues, setEditValues] = useState({
     id: "",
     name: "",
@@ -86,7 +86,6 @@ const Dashboard = () => {
         },
       });
       const response = await request.json();
-      console.log(`🚀 ~ file: page.tsx:73 ~ addProduct ~ response::`, response);
 
       if (!response.status) throw response;
       setProducts((prevProducts) => [...prevProducts, response.data]);
