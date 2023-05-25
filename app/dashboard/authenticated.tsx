@@ -42,9 +42,7 @@ const Authenticated = () => {
           <button
             className="p-2 bg-yellow-500 text-white rounded-lg"
             onClick={() => {
-              setDetail({
-                ...row,
-              });
+              getAProduct(row.id);
             }}
           >
             Detail
@@ -112,6 +110,18 @@ const Authenticated = () => {
   ) => {
     setEditValues({ name, price, id });
     setEdit(enable);
+  };
+
+  const getAProduct = async (id: string | number) => {
+    try {
+      const request = await fetch(`/api/product/${id}`);
+      const response = await request.json();
+
+      if (!response.status) throw response;
+      setDetail(response.data);
+    } catch (error) {
+      console.log("error saat mengambil detail data", error);
+    }
   };
 
   const updateProduct = async (name: string, price: string, id?: string) => {
