@@ -1,7 +1,7 @@
 import { Primitive } from "react-data-table-component/dist/src/DataTable/types";
 
 export interface Product {
-  id: number;
+  id: string;
   name: string;
   price: string;
   image?: Primitive;

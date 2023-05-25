@@ -22,7 +22,7 @@ export const RegisterButton = () => {
 export const LogoutButton = () => {
   return (
     <div className="mr-5">
-      <button className="p-4 bg-red-500 text-white rounded-lg px-8" onClick={() => signOut()}>Sign Out</button>
+      <button className="px-6 py-4 bg-orange-500 text-white rounded-lg" onClick={() => signOut()}>Sign Out</button>
     </div>
   );
 };

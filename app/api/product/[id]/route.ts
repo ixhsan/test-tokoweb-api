@@ -24,7 +24,7 @@ export async function POST(
     product_id: id,
   });
 
-  return NextResponse.json(res);
+  return NextResponse.json(res.data);
 }
 
 export async function DELETE(
