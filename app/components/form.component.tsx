@@ -7,7 +7,7 @@ interface FormProps {
   id?: string;
   name?: string;
   price?: string;
-  passValue: (name: string, price: string) => Promise<void>;
+  passValue: (name: string, price: string, id?: string) => Promise<void>;
 }
 
 const Form: React.FC<FormProps> = ({ title, id, name, price, passValue }) => {
