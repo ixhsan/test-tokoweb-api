@@ -117,8 +117,7 @@ const Authenticated = () => {
       const request = await fetch(`/api/product/${id}`);
       const response = await request.json();
 
-      if (!response.status) throw response;
-      setDetail(response.data);
+      setDetail(response);
     } catch (error) {
       console.log("error saat mengambil detail data", error);
     }
