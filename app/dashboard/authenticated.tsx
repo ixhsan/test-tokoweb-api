@@ -5,6 +5,7 @@ import { LogoutButton } from "../components/buttons.component";
 import Form from "../components/form.component";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { Product } from "@/types/product";
+import Details from "../components/detail.component";
 
 const Authenticated = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -12,6 +13,13 @@ const Authenticated = () => {
     id: "",
     name: "",
     price: "",
+  });
+  const [detail, setDetail] = useState<Product>({
+    id: "",
+    name: "",
+    price: "",
+    created_at: "",
+    updated_at: "",
   });
   const [isEdit, setEdit] = useState(false);
   const columns: TableColumn<Product>[] = [
@@ -33,6 +41,11 @@ const Authenticated = () => {
         <div className="flex flex-row gap-1">
           <button
             className="p-2 bg-yellow-500 text-white rounded-lg"
+            onClick={() => {
+              setDetail({
+                ...row,
+              });
+            }}
           >
             Detail
           </button>
@@ -182,9 +195,16 @@ const Authenticated = () => {
           </>
         )}
       </div>
-      {/* <div className="flex flex-row p-2 w-full outline-double justify-between items-center">
-
-      </div> */}
+      {detail.name && (
+        <Details
+          id={detail.id}
+          name={detail.name}
+          price={detail.price}
+          created_at={detail.created_at}
+          updated_at={detail.updated_at}
+          onClick={setDetail}
+        />
+      )}
       <div className="p-2 w-full outline-double outline-blue-300">
         {products.length && (
           <>
